@@ -12,10 +12,6 @@ public class RoomServiceImpl implements RoomService {
     private List<Room> rooms = new ArrayList<>();
 
     public RoomServiceImpl() {
-        // Initialize some sample rooms
-        rooms.add(new Room("101", RoomType.SINGLE, 50.0));
-        rooms.add(new Room("102", RoomType.DOUBLE, 70.0));
-        rooms.add(new Room("103", RoomType.SUITE, 100.0));
     }
 
     @Override
@@ -24,9 +20,14 @@ public class RoomServiceImpl implements RoomService {
     }
 
     @Override
-    public Room getRoomById(String roomId) {
+    public List<Room> getAvailableRooms() {
+        return null;
+    }
+
+    @Override
+    public Room getRoomByNumber(int roomNumber) {
         for (Room room : rooms) {
-            if (room.getId().equals(roomId)) {
+            if (room.getRoomNumber()==roomNumber) {
                 return room;
             }
         }
@@ -37,7 +38,10 @@ public class RoomServiceImpl implements RoomService {
     public List<Room> getRoomsByType(RoomType roomType) {
         List<Room> roomsByType = new ArrayList<>();
         for (Room room : rooms) {
-            if (room.getRoomType() == roomType) {
+            if (room.getRoomType().equals(roomType)) {
                 roomsByType.add(room);
             }
         }
+        return roomsByType;
+    }
+}

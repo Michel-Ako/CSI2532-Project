@@ -1,5 +1,6 @@
 package com.example.myhotel.model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,6 +55,8 @@ public class Hotel {
         reservation.getRoom().setBooked(true);
         reservations.add(reservation);
     }
+
+
 
     // cancel a reservation for a room
     public void cancelReservation(Reservation reservation) {

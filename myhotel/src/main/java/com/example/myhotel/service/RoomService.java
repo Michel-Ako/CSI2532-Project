@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface RoomService {
     List<Room> getAllRooms();
-    Room getRoomByNumber(String roomNumber);
+    Room getRoomByNumber(int roomNumber);
     List<Room> getAvailableRooms();
     List<Room> getRoomsByType(RoomType type);
 }

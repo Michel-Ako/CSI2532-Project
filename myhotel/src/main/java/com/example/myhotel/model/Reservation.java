@@ -5,19 +5,24 @@ import java.time.LocalDate;
 public class Reservation {
     private int reservationId;
     private Room room;
+
+    private LocalDate Date_reservation;
     private LocalDate checkInDate;
     private LocalDate checkOutDate;
+
+    private int ArchiveNumber;
     private double totalPrice;
 
-    public Reservation(int reservationId, Room room, LocalDate checkInDate, LocalDate checkOutDate, double totalPrice) {
+    public Reservation(int reservationId, Room room, LocalDate date_reservation, LocalDate checkInDate, LocalDate checkOutDate, int archiveNumber, double totalPrice) {
         this.reservationId = reservationId;
         this.room = room;
+        Date_reservation = date_reservation;
         this.checkInDate = checkInDate;
         this.checkOutDate = checkOutDate;
+        ArchiveNumber = archiveNumber;
         this.totalPrice = totalPrice;
     }
 
-    // getters and setters
     public int getReservationId() {
         return reservationId;
     }
@@ -34,6 +39,14 @@ public class Reservation {
         this.room = room;
     }
 
+    public LocalDate getDate_reservation() {
+        return Date_reservation;
+    }
+
+    public void setDate_reservation(LocalDate date_reservation) {
+        Date_reservation = date_reservation;
+    }
+
     public LocalDate getCheckInDate() {
         return checkInDate;
     }
@@ -48,6 +61,14 @@ public class Reservation {
 
     public void setCheckOutDate(LocalDate checkOutDate) {
         this.checkOutDate = checkOutDate;
+    }
+
+    public int getArchiveNumber() {
+        return ArchiveNumber;
+    }
+
+    public void setArchiveNumber(int archiveNumber) {
+        ArchiveNumber = archiveNumber;
     }
 
     public double getTotalPrice() {
