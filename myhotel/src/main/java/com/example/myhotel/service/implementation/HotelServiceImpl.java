@@ -6,7 +6,6 @@ import java.util.List;
 import com.example.myhotel.model.Hotel;
 import com.example.myhotel.model.Reservation;
 import com.example.myhotel.model.Room;
-import com.example.myhotel.model.RoomType;
 import com.example.myhotel.service.HotelService;
 import org.springframework.stereotype.Service;
 

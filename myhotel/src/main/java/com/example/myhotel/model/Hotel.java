@@ -56,8 +56,6 @@ public class Hotel {
         reservations.add(reservation);
     }
 
-
-
     // cancel a reservation for a room
     public void cancelReservation(Reservation reservation) {
         reservation.getRoom().setBooked(false);

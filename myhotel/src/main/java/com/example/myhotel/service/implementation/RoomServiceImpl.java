@@ -1,7 +1,6 @@
 package com.example.myhotel.service.implementation;
 
 import com.example.myhotel.model.Room;
-import com.example.myhotel.model.RoomType;
 import com.example.myhotel.service.RoomService;
 
 import java.util.ArrayList;
