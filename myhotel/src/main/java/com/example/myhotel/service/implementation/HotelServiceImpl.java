@@ -31,9 +31,9 @@ public class HotelServiceImpl implements HotelService {
     }
 
     @Override
-    public Room getRoom(String roomNumber) {
+    public Room getRoom(int roomNumber) {
         for (Room room : rooms) {
-            if (room.getNumber().equals(roomNumber)) {
+            if (room.getRoomNumber() == roomNumber) {
                 return room;
             }
         }

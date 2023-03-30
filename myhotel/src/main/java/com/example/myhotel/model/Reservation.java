@@ -2,80 +2,71 @@ package com.example.myhotel.model;
 
 import java.time.LocalDate;
 
+import java.sql.Timestamp;
+
 public class Reservation {
-    private int reservationId;
-    private Room room;
+    private int reservationID;
+    private Timestamp reservationDate;
+    private Timestamp startDate;
+    private Timestamp endDate;
+    private int roomNumber;
+    private int archiveNumber;
 
-    private LocalDate Date_reservation;
-    private LocalDate checkInDate;
-    private LocalDate checkOutDate;
-
-    private int ArchiveNumber;
-    private double totalPrice;
-
-    public Reservation(int reservationId, Room room, LocalDate date_reservation, LocalDate checkInDate, LocalDate checkOutDate, int archiveNumber, double totalPrice) {
-        this.reservationId = reservationId;
-        this.room = room;
-        Date_reservation = date_reservation;
-        this.checkInDate = checkInDate;
-        this.checkOutDate = checkOutDate;
-        ArchiveNumber = archiveNumber;
-        this.totalPrice = totalPrice;
+    public Reservation(int reservationID, Timestamp reservationDate, Timestamp startDate, Timestamp endDate, int roomNumber, int archiveNumber) {
+        this.reservationID = reservationID;
+        this.reservationDate = reservationDate;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.roomNumber = roomNumber;
+        this.archiveNumber = archiveNumber;
     }
 
-    public int getReservationId() {
-        return reservationId;
+    public int getReservationID() {
+        return reservationID;
     }
 
-    public void setReservationId(int reservationId) {
-        this.reservationId = reservationId;
+    public void setReservationID(int reservationID) {
+        this.reservationID = reservationID;
     }
 
-    public Room getRoom() {
-        return room;
+    public Timestamp getReservationDate() {
+        return reservationDate;
     }
 
-    public void setRoom(Room room) {
-        this.room = room;
+    public void setReservationDate(Timestamp reservationDate) {
+        this.reservationDate = reservationDate;
     }
 
-    public LocalDate getDate_reservation() {
-        return Date_reservation;
+    public Timestamp getStartDate() {
+        return startDate;
     }
 
-    public void setDate_reservation(LocalDate date_reservation) {
-        Date_reservation = date_reservation;
+    public void setStartDate(Timestamp startDate) {
+        this.startDate = startDate;
     }
 
-    public LocalDate getCheckInDate() {
-        return checkInDate;
+    public Timestamp getEndDate() {
+        return endDate;
     }
 
-    public void setCheckInDate(LocalDate checkInDate) {
-        this.checkInDate = checkInDate;
+    public void setEndDate(Timestamp endDate) {
+        this.endDate = endDate;
     }
 
-    public LocalDate getCheckOutDate() {
-        return checkOutDate;
+    public int getRoomNumber() {
+        return roomNumber;
     }
 
-    public void setCheckOutDate(LocalDate checkOutDate) {
-        this.checkOutDate = checkOutDate;
+    public void setRoomNumber(int roomNumber) {
+        this.roomNumber = roomNumber;
     }
 
     public int getArchiveNumber() {
-        return ArchiveNumber;
+        return archiveNumber;
     }
 
     public void setArchiveNumber(int archiveNumber) {
-        ArchiveNumber = archiveNumber;
+        this.archiveNumber = archiveNumber;
     }
 
-    public double getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(double totalPrice) {
-        this.totalPrice = totalPrice;
-    }
 }

@@ -15,8 +15,9 @@ public class Room {
     private int clientID;
     private int employeeID;
     private boolean isRented;
+    private boolean isBooked;
 
-    public Room(int roomNumber, String roomType, int price, String capacity, String view, String extent, String damage, String amenities, boolean availability, String status, int hotelID, int clientID, int employeeID, boolean isRented) {
+    public Room(int roomNumber, String roomType, int price, String capacity, String view, String extent, String damage, String amenities, boolean availability, String status, int hotelID, int clientID, int employeeID, boolean isRented, boolean isBooked) {
         this.roomNumber = roomNumber;
         this.roomType = roomType;
         this.price = price;
@@ -31,6 +32,7 @@ public class Room {
         this.clientID = clientID;
         this.employeeID = employeeID;
         this.isRented = isRented;
+        this.isBooked = isBooked;
 
     }
 
@@ -139,6 +141,13 @@ public class Room {
     }
     public void setRented(boolean rented) {
         isRented = rented;
-
     }
+    public boolean isBooked() {
+        return isBooked;
+    }
+
+    public void setBooked(boolean booked) {
+        isBooked = booked;
+    }
+
 }
