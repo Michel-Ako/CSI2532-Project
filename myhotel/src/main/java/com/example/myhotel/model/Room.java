@@ -1,23 +1,69 @@
 package com.example.myhotel.model;
 
-public class Room {
-    private int roomNumber;
-    private String roomType;
-    private int price;
-    private String capacity;
-    private String view;
-    private String extent;
-    private String damage;
-    private String amenities;
-    private boolean availability;
-    private String status;
-    private int hotelID;
-    private int clientID;
-    private int employeeID;
-    private boolean isRented;
-    private boolean isBooked;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
-    public Room(int roomNumber, String roomType, int price, String capacity, String view, String extent, String damage, String amenities, boolean availability, String status, int hotelID, int clientID, int employeeID, boolean isRented, boolean isBooked) {
+@Entity
+@Table(name = "Room")
+public class Room {
+    @Id
+    @Column(name = "roomNumber", nullable = false)
+    private int roomNumber;
+
+    @Column(name = "RoomType", nullable = false)
+    private String roomType;
+
+    @Column(name = "Price", nullable = false)
+    private double price;
+
+    @Column(name = "Capacity", nullable = false)
+    private String capacity;
+
+    @Column(name = "View", nullable = false)
+    private String view;
+
+    @Column(name = "Extent", nullable = false)
+    private boolean extent;
+
+    @Column(name = "Damage", nullable = false)
+    private String damage;
+
+    @Column(name = "Amenities", nullable = false)
+    private String amenities;
+
+    @Column(name = "Availability", nullable = false)
+    private boolean availability;
+
+    @Column(name = "Status", nullable = false)
+    private String status;
+
+    @ManyToOne(targetEntity = Hotel.class)
+    @JoinColumn(name = "hotel_ID", referencedColumnName = "hotel_ID")
+    @NotBlank(message = "Hotel ID required")
+    private Hotel hotelID;
+
+    @ManyToOne(targetEntity = Clients.class)
+    @JoinColumn(name = "client_ID", referencedColumnName = "client_ID")
+    @NotBlank(message = "Client ID required")
+    private Clients clientID;
+
+    @ManyToOne(targetEntity = Employee.class)
+    @JoinColumn(name = "employee_ID", referencedColumnName = "employee_ID")
+    @NotBlank(message = "Employee ID required")
+    private Employee employeeID;
+
+
+    public Room() {
+    }
+
+    public Room(int roomNumber, String roomType, double price, String capacity, String view, boolean extent, String damage, String amenities, boolean availability, String status, Hotel hotelID, Clients clientID, Employee employeeID) {
         this.roomNumber = roomNumber;
         this.roomType = roomType;
         this.price = price;
@@ -31,9 +77,6 @@ public class Room {
         this.hotelID = hotelID;
         this.clientID = clientID;
         this.employeeID = employeeID;
-        this.isRented = isRented;
-        this.isBooked = isBooked;
-
     }
 
     public int getRoomNumber() {
@@ -52,11 +95,11 @@ public class Room {
         this.roomType = roomType;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -76,11 +119,11 @@ public class Room {
         this.view = view;
     }
 
-    public String getExtent() {
+    public boolean getExtent() {
         return extent;
     }
 
-    public void setExtent(String extent) {
+    public void setExtent(boolean extent) {
         this.extent = extent;
     }
 
@@ -92,62 +135,22 @@ public class Room {
         this.damage = damage;
     }
 
-    public String getAmenities() {
-        return amenities;
+    @java.lang.Override
+    public java.lang.String toString() {
+        return "Room{" +
+                "roomNumber=" + roomNumber +
+                ", roomType='" + roomType + '\'' +
+                ", price=" + price +
+                ", capacity='" + capacity + '\'' +
+                ", view='" + view + '\'' +
+                ", extent='" + extent + '\'' +
+                ", damage='" + damage + '\'' +
+                ", amenities='" + amenities + '\'' +
+                ", availability=" + availability +
+                ", status='" + status + '\'' +
+                ", hotelID=" + hotelID +
+                ", clientID=" + clientID +
+                ", employeeID=" + employeeID +
+                '}';
     }
-
-    public void setAmenities(String amenities) {
-        this.amenities = amenities;
-    }
-
-    public boolean isAvailability() {
-        return availability;
-    }
-
-    public void setAvailability(boolean availability) {
-        this.availability = availability;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public int getHotelID() {
-        return hotelID;
-    }
-
-    public void setHotelID(int hotelID) {
-        this.hotelID = hotelID;
-    }
-
-    public int getClientID() {
-        return clientID;
-    }
-
-    public void setClientID(int clientID) {
-        this.clientID = clientID;
-    }
-
-    public int getEmployeeID() {
-        return employeeID;
-    }
-
-    public void setEmployeeID(int employeeID) {
-        this.employeeID = employeeID;
-    }
-    public void setRented(boolean rented) {
-        isRented = rented;
-    }
-    public boolean isBooked() {
-        return isBooked;
-    }
-
-    public void setBooked(boolean booked) {
-        isBooked = booked;
-    }
-
 }
